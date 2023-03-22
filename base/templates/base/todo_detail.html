@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content%}
+<style type="text/css">
+    td {
+      padding: 0 15px;
+    }
+  </style>
+<div>
+    <a href="/"><p1>Home<p1></a>
+</div>
+
+  
+<table style="width:100%">  
+    <tr> 
+        <th><h2>To do:</h2></th>
+        <th><h2>Description:</h2></th>   
+        <th><h2>Status</h2></th>    
+    </tr>    
+    <tr>    
+        <td>{{object.title}}</td>
+        <td>{{object.description}}</td>
+        <td>{% if object.completed%}    
+            <p1>Completed</pa>
+                {% else%}
+            <p1>Not Completed</p1>
+            {% endif%}
+        </td>
+    </tr>
+</table>
+<a href="{% url 'task-update' object.id %}"><button type="button" class="btn btn-secondary" value="Update">Update</button></a>
+<a href="{% url 'task-delete' object.id %}"><button type="button" class="btn btn-secondary" value="Delete">Delete</button></a>     
+{% endblock %}
